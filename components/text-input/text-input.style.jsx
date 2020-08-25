@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#58D7F2", 
         borderRadius: 5,
-        textAlignVertical: "middle",
         backgroundColor: 'white',    
     },
     inputLabel: {

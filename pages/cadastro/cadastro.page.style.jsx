@@ -8,5 +8,11 @@ export const styles = StyleSheet.create({
         color: 'white',
         fontWeight: "bold",
         fontSize: 46,
+    },
+    button: {
+        marginTop: 30,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        marginHorizontal: 5,
     }
 });

@@ -1,4 +1,3 @@
-//Matheus to-do inputs do cadastro
 import React from 'react';
 import { View, Text } from 'react-native'
 import { styles } from "./cadastro.page.style";
@@ -27,7 +26,9 @@ export function Cadastro(props) {
             <View>
                 <FormInput label="Especialização"/>          
             </View>
-            <PrimaryButton title="Prosseguir"/>
+            <View style={styles.button}>
+                <PrimaryButton title="Prosseguir"/>
+            </View>
         </View>
     );
 }
