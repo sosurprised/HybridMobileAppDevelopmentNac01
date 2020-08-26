@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
         marginHorizontal: 5,
     },
     input: {      
-        minWidth: 300,
-        minHeight: 30,
+        width: 300,
+        height: 30,
         paddingVertical: 5,
         marginVertical: 3,    
         borderWidth: 1,

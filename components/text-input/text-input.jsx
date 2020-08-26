@@ -12,8 +12,9 @@ export function FormInput(props) {
             </View>
             <View style={styles.input}>
                 <TextInput
-                // value={title}
-                // onChangeText={this.handleTitleChange}
+                    editable
+                    value={props.value}
+                    onChangeText={props.onChangeInput}
                 />
             </View>           
         </View>
