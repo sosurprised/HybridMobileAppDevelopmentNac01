@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: '#1788A6',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     title: {
         color: 'white',
