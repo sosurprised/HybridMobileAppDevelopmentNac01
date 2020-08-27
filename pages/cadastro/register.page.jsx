@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, Alert, TextInput } from 'react-native'
+import { View, Text, Alert, TextInput } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { styles } from "./register.page.style";
 import { FormInput } from "../../components/text-input/text-input";
 import { PrimaryButton } from '../../components/buttons/primary-button/primary-button';
 
-export function Register(props) {
+export function Register({props}) {
     const [inputName, setInputName] = useState("");
     const [inputSurname, setInputsurname] = useState("");
     const [inputDateBirth, setInputDateBirth] = useState("");
     const [inputTypeDocument, setInputTypeDocument] = useState("");
     const [inputGraduationYear, setInputGraduationYear] = useState("");
     const [inputEspecialization, setInputExpecialization]=useState("");
+
+    const navigation = useNavigation();
 
     function onRegister () {
         const userData = {  
@@ -27,6 +30,7 @@ export function Register(props) {
             headers: { 'Content-Type': 'application/json' }
         }).then(response => { console.log("informações salvas", response.json()) 
         });
+        navigation.navigate('Success');
     }
 
     return (

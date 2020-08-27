@@ -12,7 +12,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Register"
+          name="Cadastro"
           component={Register}
         />
         <Stack.Screen 
