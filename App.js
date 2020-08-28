@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet } from 'react-native';
 import { Login } from './screens/login/login.screen';
 import { Register } from './screens/cadastro/register.screen';
 import { Success } from './screens/success/success.screen';
@@ -28,4 +29,19 @@ export default function App() {
   );
 }
 
+export const globalStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#1788A6',
+    alignItems: 'center',
+    justifyContent: 'center',
+},
+  text: {
+      color: 'white',
+      fontWeight: "400",
+      fontSize: 20,
+      marginHorizontal: 20,
+      textAlign: "center",
+  }
+});
 

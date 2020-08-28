@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Alert, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from "./register.screen.style.jsx";
+import { globalStyles } from '../../App';
 import { FormInput } from "../../components/text-input/text-input";
 import { PrimaryButton } from '../../components/buttons/primary-button/primary-button';
 
@@ -39,7 +40,7 @@ export function Register({props}) {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={globalStyles.container}>
             <View>
                 <FormInput label="Nome" 
                 value={inputName} 
