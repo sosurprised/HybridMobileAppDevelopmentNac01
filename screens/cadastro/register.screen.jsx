@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Alert, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from "./register.page.style";
+import { styles } from "./register.screen.style.jsx";
 import { FormInput } from "../../components/text-input/text-input";
 import { PrimaryButton } from '../../components/buttons/primary-button/primary-button';
 
@@ -12,6 +12,9 @@ export function Register({props}) {
     const [inputTypeDocument, setInputTypeDocument] = useState("");
     const [inputGraduationYear, setInputGraduationYear] = useState("");
     const [inputEspecialization, setInputExpecialization]=useState("");
+    const [inputEmail, setEmailName] = useState("");
+    const [inputPassword, setInputPassword] = useState("");
+    const [inputPasswordConfirmation, setInputPasswordConfirmation] = useState("");
 
     const navigation = useNavigation();
 
@@ -22,7 +25,9 @@ export function Register({props}) {
             dateBirth: inputDateBirth, 
             typeDocument: inputTypeDocument,
             graduationYear: inputGraduationYear,
-            especialization: inputEspecialization 
+            especialization: inputEspecialization,
+            email: inputEmail,
+            password:  inputPassword,
         };
         fetch("https://davida-7c9c3.firebaseio.com/users.json", { 
             method: 'POST', 
@@ -35,7 +40,6 @@ export function Register({props}) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Cadastro</Text>
             <View>
                 <FormInput label="Nome" 
                 value={inputName} 
@@ -70,6 +74,7 @@ export function Register({props}) {
                 <PrimaryButton title="Prosseguir" onPress={() => { onRegister() } }
         />
             </View>
+            
         </View>
     );
 }

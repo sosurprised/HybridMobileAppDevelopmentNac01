@@ -5,9 +5,9 @@ export const styles = StyleSheet.create({
         backgroundColor: '#1788A6',
         marginHorizontal: 5,
     },
-    input: {      
-        width: 300,
-        height: 30,
+    input: {              
+        minWidth: 340,
+        height: 40,
         paddingVertical: 5,
         marginVertical: 3,    
         borderWidth: 1,
