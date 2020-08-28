@@ -8,7 +8,7 @@ to run the project:
 2) type 'expo start' in the vs code terminal, a browser window will open
 3) choose 'run on android device/emulator' in the browser window menu
 
-# Working flow
+## Working flow
 - Login screen, press "Cadastrar-se" button (for now just this button is functional)
 - Fill in the form
 - Press the confirmation button
