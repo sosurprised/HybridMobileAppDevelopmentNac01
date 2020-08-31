@@ -10,9 +10,20 @@ to run the project:
 
 ## Working flow
 - Login screen, press "Cadastrar-se" button (for now just this button is functional)
-- Fill in the form
-- Press the confirmation button
+
+![alt text](https://github.com/sosurprised/HybridMobileAppDevelopmentNac01/blob/master/prints/login.png)
+
+- Fill in the form (basic information, email and password)
+
+![alt text](https://github.com/sosurprised/HybridMobileAppDevelopmentNac01/blob/master/prints/register1.png)
+
+- Press the confirmation ("Concluir") button
+
+![alt text](https://github.com/sosurprised/HybridMobileAppDevelopmentNac01/blob/master/prints/register2.png)
+
 - Ok, your data is saved, you can view the data here: https://davida-7c9c3.firebaseio.com/users.json
+
+![alt text](https://github.com/sosurprised/HybridMobileAppDevelopmentNac01/blob/master/prints/success.png)
 
 <b>members of the group:  </b>
 <br> Nadezhda Andrushchenko - RM81830  <br>Beatriz Mendonça de Oliveira - RM83214<br> Bruno Almeida - RM82970 <br> Carlos César Rodrigues Vieira Junior - RM82455 <br> Juan Henrique Batista Souza- RM82073 <br> Matheus Cavalcanti Palermo - RM83072 
