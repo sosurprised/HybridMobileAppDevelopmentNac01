@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const width = Dimensions.get('screen').width*0.8;
 
 export const styles = StyleSheet.create({
     container: {
@@ -6,7 +8,7 @@ export const styles = StyleSheet.create({
         marginHorizontal: 5,
     },
     input: {              
-        minWidth: 340,
+        minWidth: width,
         height: 42,
         paddingVertical: 5,
         marginVertical: 3,    
@@ -19,6 +21,7 @@ export const styles = StyleSheet.create({
         color: 'white',
         fontWeight: "300",
         fontSize: 18,
+        marginTop: 3,
     },
     title: {
         color: 'white',

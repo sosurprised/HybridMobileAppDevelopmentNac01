@@ -26,7 +26,7 @@ export function Register({props}) {
             name: userInputs.inputName, 
             surname: userInputs.inputSurname, 
             dateBirth: userInputs.inputDateBirth, 
-            document: userInputs.inputTypeDocument,
+            document: userInputs.inputDocument,
             graduationYear: userInputs.inputGraduationYear,
             especialization: userInputs.inputEspecialization,
             email: userInputs.inputEmail,
@@ -48,32 +48,32 @@ export function Register({props}) {
                 <View>
                     <FormInput label="Nome" 
                     value={userInputs.inputName} 
-                    onChangeInput={(text) => setUserInputs({inputName: text})} />          
+                    onChangeInput={(text) => setUserInputs({...userInputs, inputName: text})} />          
                 </View>
                 <View>
                     <FormInput label="Sobrenome" 
                     value={userInputs.inputSurname} 
-                    onChangeInput={(text) => setUserInputs({inputSurname: text})} />          
+                    onChangeInput={(text) => setUserInputs({...userInputs, inputSurname: text})} />          
                 </View>
                 <View>
                     <FormInput label="Data de nascimento" 
                     value={userInputs.inputDateBirth} 
-                    onChangeInput={(text) => setUserInputs({inputDateBirth: text})} />          
+                    onChangeInput={(text) => setUserInputs({...userInputs, inputDateBirth: text})} />          
                 </View>
                 <View>
                     <FormInput label="CFM/CRM/COREN"  
                     value={userInputs.inputDocument} 
-                    onChangeInput={(text) => setUserInputs({inputDocument: text})}/>          
+                    onChangeInput={(text) => setUserInputs({...userInputs, inputDocument: text})}/>          
                 </View>
                 <View>
                     <FormInput label="Ano da formação" 
                     value={userInputs.inputGraduationYear} 
-                    onChangeInput={(text) => setUserInputs({inputGraduationYear: text})} />        
+                    onChangeInput={(text) => setUserInputs({...userInputs, inputGraduationYear: text})} />        
                 </View>
                 <View>
                     <FormInput label="Especialização"  
                     value={userInputs.inputEspecialization} 
-                    onChangeInput={(text) => setUserInputs({inputEspecialization: text})}/>          
+                    onChangeInput={(text) => setUserInputs({...userInputs, inputEspecialization: text})}/>          
                 </View>
                 <View style={styles.button}>
                     <PrimaryButton title="Prosseguir" onPress={() => { setPassStep(true) } }/>
@@ -84,17 +84,17 @@ export function Register({props}) {
         <View>
             <FormInput label="E-mail"  
             value={userInputs.inputEmail} 
-            onChangeInput={(text) => setUserInputs({inputEmail: text})}/>          
+            onChangeInput={(text) => setUserInputs({...userInputs, inputEmail: text})}/>          
         </View>  
         <View>
             <FormInput label="Senha"  
             value={userInputs.inputPassword} 
-            onChangeInput={(text) => setUserInputs({inputPassword: text})}/>          
+            onChangeInput={(text) => setUserInputs({...userInputs, inputPassword: text})}/>          
         </View>  
         <View>
             <FormInput label="Confirmação da senha"  
             value={userInputs.inputPasswordConfirmation} 
-            onChangeInput={(text) => setUserInputs({inputPasswordConfirmation: text})}/>       
+            onChangeInput={(text) => setUserInputs({...userInputs, inputPasswordConfirmation: text})}/>       
         </View>  
         <View style={styles.button}>
             <PrimaryButton title="Concluir" onPress={() => { onRegister() } }/>
