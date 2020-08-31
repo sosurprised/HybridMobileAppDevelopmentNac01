@@ -7,28 +7,30 @@ import { FormInput } from "../../components/text-input/text-input";
 import { PrimaryButton } from '../../components/buttons/primary-button/primary-button';
 
 export function Register({props}) {
-    const [inputName, setInputName] = useState("");
-    const [inputSurname, setInputsurname] = useState("");
-    const [inputDateBirth, setInputDateBirth] = useState("");
-    const [inputTypeDocument, setInputTypeDocument] = useState("");
-    const [inputGraduationYear, setInputGraduationYear] = useState("");
-    const [inputEspecialization, setInputExpecialization]=useState("");
-    const [inputEmail, setEmailName] = useState("");
-    const [inputPassword, setInputPassword] = useState("");
-    const [inputPasswordConfirmation, setInputPasswordConfirmation] = useState("");
-
+    const [userInputs, setUserInputs] = useState({
+        inputName: '',
+        inputSurname: '',
+        inputDateBirth: '',
+        inputDocument: '',
+        inputGraduationYear: '',
+        inputEspecialization: '',
+        inputEmail: '',
+        inputPassword: '',
+        inputPasswordConfirmation: '',
+    });
+    const [passStep, setPassStep] = useState(false);
     const navigation = useNavigation();
 
     function onRegister () {
         const userData = {  
-            name: inputName, 
-            surname: inputSurname, 
-            dateBirth: inputDateBirth, 
-            typeDocument: inputTypeDocument,
-            graduationYear: inputGraduationYear,
-            especialization: inputEspecialization,
-            email: inputEmail,
-            password:  inputPassword,
+            name: userInputs.inputName, 
+            surname: userInputs.inputSurname, 
+            dateBirth: userInputs.inputDateBirth, 
+            document: userInputs.inputTypeDocument,
+            graduationYear: userInputs.inputGraduationYear,
+            especialization: userInputs.inputEspecialization,
+            email: userInputs.inputEmail,
+            password:  userInputs.inputPassword,
         };
         fetch("https://davida-7c9c3.firebaseio.com/users.json", { 
             method: 'POST', 
@@ -39,43 +41,66 @@ export function Register({props}) {
         navigation.navigate('Success');
     }
 
-    return (
+    return (      
         <View style={globalStyles.container}>
-            <View>
-                <FormInput label="Nome" 
-                value={inputName} 
-                onChangeInput={(text) => setInputName(text) } />          
-            </View>
-            <View>
-                <FormInput label="Sobrenome" 
-                value={inputSurname} 
-                onChangeInput={(text) => setInputsurname(text)} />          
-            </View>
-            <View>
-                <FormInput label="Data de nascimento" 
-                value={inputDateBirth} 
-                onChangeInput={(text) => setInputDateBirth(text)} />          
-            </View>
-            <View>
-                <FormInput label="CFM/CRM/COREN"  
-                value={inputTypeDocument} 
-                onChangeInput={(text) => setInputTypeDocument(text)} />          
-            </View>
-            <View>
-                <FormInput label="Ano da formação" 
-                value={inputGraduationYear} 
-                onChangeInput={(text) => setInputGraduationYear(text)} />        
-            </View>
-            <View>
-                <FormInput label="Especialização"  
-                value={inputEspecialization} 
-                onChangeInput={(text) => setInputExpecialization(text)}/>          
-            </View>
-            <View style={styles.button}>
-                <PrimaryButton title="Prosseguir" onPress={() => { onRegister() } }
-        />
-            </View>
-            
+            {!passStep &&
+            <>
+                <View>
+                    <FormInput label="Nome" 
+                    value={userInputs.inputName} 
+                    onChangeInput={(text) => setUserInputs({inputName: text})} />          
+                </View>
+                <View>
+                    <FormInput label="Sobrenome" 
+                    value={userInputs.inputSurname} 
+                    onChangeInput={(text) => setUserInputs({inputSurname: text})} />          
+                </View>
+                <View>
+                    <FormInput label="Data de nascimento" 
+                    value={userInputs.inputDateBirth} 
+                    onChangeInput={(text) => setUserInputs({inputDateBirth: text})} />          
+                </View>
+                <View>
+                    <FormInput label="CFM/CRM/COREN"  
+                    value={userInputs.inputDocument} 
+                    onChangeInput={(text) => setUserInputs({inputDocument: text})}/>          
+                </View>
+                <View>
+                    <FormInput label="Ano da formação" 
+                    value={userInputs.inputGraduationYear} 
+                    onChangeInput={(text) => setUserInputs({inputGraduationYear: text})} />        
+                </View>
+                <View>
+                    <FormInput label="Especialização"  
+                    value={userInputs.inputEspecialization} 
+                    onChangeInput={(text) => setUserInputs({inputEspecialization: text})}/>          
+                </View>
+                <View style={styles.button}>
+                    <PrimaryButton title="Prosseguir" onPress={() => { setPassStep(true) } }/>
+                </View>          
+           </>}
+        {passStep &&
+        <>
+        <View>
+            <FormInput label="E-mail"  
+            value={userInputs.inputEmail} 
+            onChangeInput={(text) => setUserInputs({inputEmail: text})}/>          
+        </View>  
+        <View>
+            <FormInput label="Senha"  
+            value={userInputs.inputPassword} 
+            onChangeInput={(text) => setUserInputs({inputPassword: text})}/>          
+        </View>  
+        <View>
+            <FormInput label="Confirmação da senha"  
+            value={userInputs.inputPasswordConfirmation} 
+            onChangeInput={(text) => setUserInputs({inputPasswordConfirmation: text})}/>       
+        </View>  
+        <View style={styles.button}>
+            <PrimaryButton title="Concluir" onPress={() => { onRegister() } }/>
+        </View>
+         </>
+        }    
         </View>
     );
 }

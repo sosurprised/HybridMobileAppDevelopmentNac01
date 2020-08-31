@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     },
     input: {              
         minWidth: 340,
-        height: 40,
+        height: 42,
         paddingVertical: 5,
         marginVertical: 3,    
         borderWidth: 1,
