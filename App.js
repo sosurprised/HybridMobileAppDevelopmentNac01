@@ -8,15 +8,19 @@ import { Login } from './screens/login/login.screen';
 import { Register } from './screens/cadastro/register.screen';
 import { Success } from './screens/success/success.screen';
 import { Menu } from './screens/menu/menu.screen';
+import { ShareExperienceForm } from './screens/share-experience-form/share-experience-form.screen';
+import { Profile } from './screens/profile/profile';
+import { Start } from './screens/start/start.screen';
 
-const Drawer = createDrawerNavigator();
+//const Drawer = createDrawerNavigator();
 
-const Stack = createStackNavigator();
+//const Stack = createStackNavigator();
 
 export default function App() {
   return (
     // <NavigationContainer>
-      <Menu />
+
+      <Start />
   //     <Stack.Navigator initialRouteName="Login">
   //       <Stack.Screen
   //           name="Login"
@@ -35,6 +39,7 @@ export default function App() {
   //       <Drawer.Screen name="Notifications" component={NotificationsScreen} />
   //     </Drawer.Navigator> 
   //  </NavigationContainer> 
+
   );
 }
 
@@ -45,14 +50,16 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#1788A6',
     alignItems: 'center',
-    justifyContent: 'center',
-},
+  },
+  containerLeft: {
+    backgroundColor: '#1788A6',
+  },
   text: {
       color: 'white',
       fontWeight: "400",
       fontSize: 20,
       marginHorizontal: 20,
       textAlign: "center",
-  }
+  } 
 });
 

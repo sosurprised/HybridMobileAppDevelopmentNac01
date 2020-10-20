@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
         borderBottomColor: 'white', 
         backgroundColor: 'transparent',
         flexDirection: 'row',
-        justifyContent: 'left',
     },
     buttonText: {
         color: 'white',

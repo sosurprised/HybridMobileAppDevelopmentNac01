@@ -18,5 +18,8 @@ export const styles = StyleSheet.create({
         marginTop: 150,
         width: 180,
         height: 180,
+    },
+    button:{
+        paddingVertical: 20,
     }
 });
