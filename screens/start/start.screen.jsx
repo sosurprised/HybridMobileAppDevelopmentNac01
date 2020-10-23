@@ -12,7 +12,7 @@ export function Start({props}) {
     return(
         <View style={globalStyles.container}>
             <Typography text="dáVida" style={typographyStyles.white42} />    
-            <Image source={StartPage} style={styles.image} />                    
+            <Image source={StartPage} style={styles.imag} />                    
         </View> 
         
     )};

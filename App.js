@@ -11,6 +11,7 @@ import { Menu } from './screens/menu/menu.screen';
 import { ShareExperienceForm } from './screens/share-experience-form/share-experience-form.screen';
 import { Profile } from './screens/profile/profile';
 import { Start } from './screens/start/start.screen';
+import { ListingExperiences } from './screens/listings/listing-experiences';
 
 //const Drawer = createDrawerNavigator();
 
@@ -20,7 +21,7 @@ export default function App() {
   return (
     // <NavigationContainer>
 
-      <Start />
+      <ListingExperiences />
   //     <Stack.Navigator initialRouteName="Login">
   //       <Stack.Screen
   //           name="Login"
