@@ -4,7 +4,7 @@ const width = Dimensions.get('screen').width*0.8;
 
 export const styles = StyleSheet.create({
     menuButton: {      
-        minHeight: 40,
+        minHeight: 80,
         width: width,
         paddingVertical: 10,
         borderWidth: 1,
@@ -12,10 +12,11 @@ export const styles = StyleSheet.create({
         borderBottomColor: 'white', 
         backgroundColor: 'transparent',
         flexDirection: 'row',
+        alignItems: 'center',
     },
     buttonText: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 14,
+        fontSize: 24,
     }
 });

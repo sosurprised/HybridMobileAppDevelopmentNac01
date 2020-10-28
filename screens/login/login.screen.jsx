@@ -5,11 +5,13 @@ import { globalStyles } from '../../App';
 import { useNavigation } from '@react-navigation/native';
 import { FormInput } from "../../components/text-input/text-input";
 import { PrimaryButton } from '../../components/buttons/primary-button/primary-button';
+import { SecondaryButton } from '../../components/buttons/secondary-button/secondary-button';
 
 export function Login({props}) {
     const navigation = useNavigation();
+
     return(
-        <View style={ globalStyles.container }>
+        <View style={ styles.container }>
             <View>
                 <FormInput label="Email" 
                 />          
@@ -25,8 +27,8 @@ export function Login({props}) {
                 <Text style={ globalStyles.text }>Ainda não tem cadastro?</Text>
             </View>
             <View style={ styles.button } >
-                <PrimaryButton title="Cadastrar-se" onPress={ () => navigation.navigate('Cadastro') } />
+                <SecondaryButton title="Cadastrar-se" onPress={ () => navigation.navigate('Cadastro') } />
             </View>
         </View>
-);
+    );
 }

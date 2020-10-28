@@ -10,7 +10,7 @@ export function Listing (props) {
         <ScrollView>
             {
                 props.data.map((item, index) =>
-                    <ListingCard key={index} title={item.title}/>        
+                    <ListingCard key={index} title={item.title} onPress={props.onPress} data={item}/>        
                 )
             }
         </ScrollView>
