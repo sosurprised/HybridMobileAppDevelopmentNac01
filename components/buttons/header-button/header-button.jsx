@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 export function CustomHeaderButton (props) {
     return (
-      <HeaderButton {...props} IconComponent={Ionicons} iconSize={23} color={'red'}/>
+      <HeaderButton {...props} IconComponent={Ionicons} iconSize={23} color={'#1788A6'}/>
     );
   }
 

@@ -23,14 +23,15 @@ export function Register({props}) {
 
     function onRegister () {
         const userData = {  
-            name: userInputs.inputName, 
-            surname: userInputs.inputSurname, 
-            dateBirth: userInputs.inputDateBirth, 
-            document: userInputs.inputDocument,
-            graduationYear: userInputs.inputGraduationYear,
-            especialization: userInputs.inputEspecialization,
+            nome: userInputs.inputName, 
+            sobrenome: userInputs.inputSurname, 
+            dataNascimento: userInputs.inputDateBirth, 
+            documento: userInputs.inputDocument,
+            anoFormacao: userInputs.inputGraduationYear,
+            especialidade: userInputs.inputEspecialization,
+            admin: false,
             email: userInputs.inputEmail,
-            password:  userInputs.inputPassword,
+            senha:  userInputs.inputPassword,
         };
         fetch("https://davida-7c9c3.firebaseio.com/users.json", { 
             method: 'POST', 
@@ -42,7 +43,7 @@ export function Register({props}) {
     }
 
     return (      
-        <View style={globalStyles.container}>
+        <View style={styles.container}>
             {!passStep &&
             <>
                 <View>

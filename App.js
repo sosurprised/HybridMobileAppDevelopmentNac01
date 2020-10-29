@@ -1,121 +1,19 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer, TabActions } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, Dimensions } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import Icon from 'react-native-ionicons'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Login } from './screens/login/login.screen';
-import { Register } from './screens/cadastro/register.screen';
-import { Success } from './screens/success/success.screen';
 import { Menu } from './screens/menu/menu.screen';
-import { ShareExperienceForm } from './screens/share-experience-form/share-experience-form.screen';
-import { Profile } from './screens/profile/profile';
-import { Start } from './screens/start/start.screen';
-import { ListingExperiences } from './screens/listings/listing-experiences';
-import Article from './models/article';
-import { Reading } from './screens/reading/reading.screen';
-import { ListingArticles } from './screens/listings/listing-articles';
-import { CustomHeaderButton } from './components/buttons/header-button/header-button';
+import StackExperiencesScreen from './navigation/stack-experiences';
+import StackArticlesScreen from './navigation/stack-articles';
+import StackProfileScreen from './navigation/stack-profile';
+import StackShareExperienceScreen from './navigation/stack-share-experience';
+import StackRegisterScreen from './navigation/stack-login';
 
 const Drawer = createDrawerNavigator();
-
-const StackArticles = createStackNavigator();
-const StackExperiences = createStackNavigator();
-const StackProfile = createStackNavigator();
-const StackLoginRegister = createStackNavigator();
-const StackShareExperience = createStackNavigator();
-
 const Tab = createBottomTabNavigator();
-
-function StackExperiencesScreen(props) {
-  return (
-      <StackExperiences.Navigator initialRouteName="ListingExperiences"> 
-        <StackExperiences.Screen
-          name="ListingExperiences"
-          component={ListingExperiences}
-          options= {({ navigation }) => ({
-            headerTitle: "Relatos",
-            headerLeft: () => (
-              <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-                <Item 
-                  title='Menu' 
-                  iconName='ios-menu'
-                  onPress={() => { navigation.toggleDrawer() }}/>
-            </HeaderButtons>
-            )
-          }
-          )}
-        />
-        <StackExperiences.Screen 
-          name="Reading" 
-          component={Reading}
-          options={{
-            headerTitle: ""
-          }} />
-      </StackExperiences.Navigator> 
-  );
-}
-
-function StackArticlesScreen() {
-  return (
-    <StackArticles.Navigator initialRouteName="ListingArticles"> 
-      <StackArticles.Screen 
-        name="Reading" 
-        component={Reading} 
-        options={{
-          headerTitle: ""
-        }}
-        />
-      <StackArticles.Screen 
-        name="ListingArticles" 
-        component={ListingArticles} 
-        options={{
-          headerTitle: "Artigos"
-        }}/>
-   </StackArticles.Navigator> 
-  );
-}
-
-function StackShareExperienceScreen() {
-  return (
-    <StackShareExperience.Navigator> 
-      <StackShareExperience.Screen 
-        name="ShareExperienceForm" 
-        component={ShareExperienceForm} 
-        options= {({ navigation }) => ({
-          headerTitle: "",
-          headerLeft: () => (
-            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-              <Item 
-                title='Menu' 
-                iconName='ios-menu'
-                onPress={() => { navigation.toggleDrawer() }}/>
-          </HeaderButtons>
-          )
-        }
-        )}
-        />
-   </StackShareExperience.Navigator> 
-  );
-}
-
-function StackProfileScreen() {
-  return (
-    <StackProfile.Navigator> 
-      <StackProfile.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          headerTitle: "Seu perfil"
-        }}
-      />
-   </StackProfile.Navigator> 
-  );
-}
 
 function Tabs() {
   return (
@@ -154,45 +52,15 @@ function Tabs() {
   );
 }
 
-function DrawerMenuScreen() {
-  return (
-    <Drawer.Navigator initialRouteName="Menu">
-          <Drawer.Screen name="Tabs" component={Tabs} />
-          <Drawer.Screen name="Menu" component={Menu} />
-    </Drawer.Navigator>
-  );
-}
-
 export default function App() {
   return (
-     <NavigationContainer>
-       {/* <StackLoginRegister.Navigator initialRouteName="Login" screenOptions={{
-       headerStyle: {
-          backgroundColor: '#1788A6',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      }}>
-          <StackLoginRegister.Screen
-            name="Login"
-            component={Login}
-          />
-          <StackLoginRegister.Screen
-            name="Cadastro"
-            component={Register}
-          />
-        </StackLoginRegister.Navigator> */}
-        {/* <Stack.Screen
-            name="Menu"
-            component={Menu}
-          /> */}
-      
+     <NavigationContainer>      
           <Drawer.Navigator >
             <Drawer.Screen name="Home" component={Tabs} />
-            <Drawer.Screen name="Menu" component={Menu} />
-            <Drawer.Screen name="Experiences" component={StackShareExperienceScreen} />
+            {/*para testes*/}
+            <Drawer.Screen name="Cadastrar-se" component={StackRegisterScreen} /> 
+            <Drawer.Screen name="Compartilhe experiência" component={StackShareExperienceScreen} />
+            <Drawer.Screen name="Fale Conosco" component={StackShareExperienceScreen} />
            </Drawer.Navigator>
           
        </NavigationContainer> 

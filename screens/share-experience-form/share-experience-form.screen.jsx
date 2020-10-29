@@ -41,24 +41,26 @@ export function ShareExperienceForm({props}) {
 
     return (      
         <View style={globalStyles.container}>
-            <Typography style={typographyStyles.white18}
+            <View style={styles.title}>
+            <Typography style={typographyStyles.white24}
                 text='Conte para nós da sua experiência de trabalho com doação de órgãos!' />
-            <View>
+            </View>
+            <View style={styles.input}>
                 <FormInput label="Tema do relato" 
                 value={experienceInputs.topic} 
                 onChangeInput={(e) => setExperienceInputs({...experienceInputs, topic: e})} />          
             </View>
-            <View>
+            <View style={styles.input}>
                 <FormInput label="Título do relato" 
                 value={experienceInputs.title} 
                 onChangeInput={(e) => setExperienceInputs({...experienceInputs, title: e})} />          
             </View>
-            <View>
+            <View style={styles.input}>
                 <TextArea placeholder="Seu relato" 
                 value={experienceInputs.text} 
                 onChangeInput={(e) => setExperienceInputs({...experienceInputs, text: e})} />          
             </View>
-            <View style={globalStyles.button}>
+            <View style={styles.button}>
                 <PrimaryButton title="Enviar"/>
             </View>          
         </View>

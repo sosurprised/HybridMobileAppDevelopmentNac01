@@ -1,11 +1,12 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const width = Dimensions.get('screen').width*0.8;
+const width = Dimensions.get('screen').width*0.92;
 
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: '#1788A6',
-        marginHorizontal: 5,
+        marginHorizontal: 15,
+        paddingTop: 15,
     },
     input: {              
         minWidth: width,
