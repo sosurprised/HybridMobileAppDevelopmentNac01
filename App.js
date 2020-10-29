@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, Dimensions } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Icon from 'react-native-ionicons'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Login } from './screens/login/login.screen';
@@ -18,6 +19,7 @@ import { ListingExperiences } from './screens/listings/listing-experiences';
 import Article from './models/article';
 import { Reading } from './screens/reading/reading.screen';
 import { ListingArticles } from './screens/listings/listing-articles';
+import { CustomHeaderButton } from './components/buttons/header-button/header-button';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,18 +27,28 @@ const StackArticles = createStackNavigator();
 const StackExperiences = createStackNavigator();
 const StackProfile = createStackNavigator();
 const StackLoginRegister = createStackNavigator();
+const StackShareExperience = createStackNavigator();
 
 const Tab = createBottomTabNavigator();
 
-function StackExperiencesScreen() {
+function StackExperiencesScreen(props) {
   return (
       <StackExperiences.Navigator initialRouteName="ListingExperiences"> 
         <StackExperiences.Screen
           name="ListingExperiences"
           component={ListingExperiences}
-          options={{
-            headerTitle: "Relatos"
-          }}
+          options= {({ navigation }) => ({
+            headerTitle: "Relatos",
+            headerLeft: () => (
+              <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                <Item 
+                  title='Menu' 
+                  iconName='ios-menu'
+                  onPress={() => { navigation.toggleDrawer() }}/>
+            </HeaderButtons>
+            )
+          }
+          )}
         />
         <StackExperiences.Screen 
           name="Reading" 
@@ -68,6 +80,29 @@ function StackArticlesScreen() {
   );
 }
 
+function StackShareExperienceScreen() {
+  return (
+    <StackShareExperience.Navigator> 
+      <StackShareExperience.Screen 
+        name="ShareExperienceForm" 
+        component={ShareExperienceForm} 
+        options= {({ navigation }) => ({
+          headerTitle: "",
+          headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+              <Item 
+                title='Menu' 
+                iconName='ios-menu'
+                onPress={() => { navigation.toggleDrawer() }}/>
+          </HeaderButtons>
+          )
+        }
+        )}
+        />
+   </StackShareExperience.Navigator> 
+  );
+}
+
 function StackProfileScreen() {
   return (
     <StackProfile.Navigator> 
@@ -82,42 +117,9 @@ function StackProfileScreen() {
   );
 }
 
-export default function App() {
+function Tabs() {
   return (
-     <NavigationContainer>
-       {/* <StackLoginRegister.Navigator initialRouteName="Login" screenOptions={{
-       headerStyle: {
-          backgroundColor: '#1788A6',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      }}>
-          <StackLoginRegister.Screen
-            name="Login"
-            component={Login}
-          />
-          <StackLoginRegister.Screen
-            name="Cadastro"
-            component={Register}
-          />
-        </StackLoginRegister.Navigator> */}
-        {/* <Stack.Screen
-            name="Menu"
-            component={Menu}
-          /> */}
-
-        {/* <Stack.Screen
-            name="ShareExperienceForm"
-            component={ShareExperienceForm}
-          /> */}
-      
-      
-          {/* <Drawer.Navigator initialRouteName="Menu">
-          <Drawer.Screen name="Menu" component={Menu} />
-        </Drawer.Navigator>   */}
-          <Tab.Navigator
+    <Tab.Navigator
            screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               let iconName; 
@@ -149,6 +151,50 @@ export default function App() {
               component={StackProfileScreen}  
               options={{tabBarLabel: 'Perfil'}}/>
           </Tab.Navigator>
+  );
+}
+
+function DrawerMenuScreen() {
+  return (
+    <Drawer.Navigator initialRouteName="Menu">
+          <Drawer.Screen name="Tabs" component={Tabs} />
+          <Drawer.Screen name="Menu" component={Menu} />
+    </Drawer.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+     <NavigationContainer>
+       {/* <StackLoginRegister.Navigator initialRouteName="Login" screenOptions={{
+       headerStyle: {
+          backgroundColor: '#1788A6',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+          <StackLoginRegister.Screen
+            name="Login"
+            component={Login}
+          />
+          <StackLoginRegister.Screen
+            name="Cadastro"
+            component={Register}
+          />
+        </StackLoginRegister.Navigator> */}
+        {/* <Stack.Screen
+            name="Menu"
+            component={Menu}
+          /> */}
+      
+          <Drawer.Navigator >
+            <Drawer.Screen name="Home" component={Tabs} />
+            <Drawer.Screen name="Menu" component={Menu} />
+            <Drawer.Screen name="Experiences" component={StackShareExperienceScreen} />
+           </Drawer.Navigator>
+          
        </NavigationContainer> 
   );
 }
