@@ -17,27 +17,22 @@ export function ShareExperienceForm({props}) {
         userId: '',
     });
 
-    //const navigation = useNavigation();
+    const navigation = useNavigation();
 
-    // function onRegister () {
-    //     const experienceData = {  
-    //         name: userInputs.inputName, 
-    //         surname: userInputs.inputSurname, 
-    //         dateBirth: userInputs.inputDateBirth, 
-    //         document: userInputs.inputDocument,
-    //         graduationYear: userInputs.inputGraduationYear,
-    //         especialization: userInputs.inputEspecialization,
-    //         email: userInputs.inputEmail,
-    //         password:  userInputs.inputPassword,
-    //     };
-    //     fetch("https://davida-7c9c3.firebaseio.com/users.json", { 
-    //         method: 'POST', 
-    //         body: JSON.stringify(userData),
-    //         headers: { 'Content-Type': 'application/json' }
-    //     }).then(response => { console.log("informações salvas", response.json()) 
-    //     });
-    //     navigation.navigate('Success');
-    // }
+    function onSend () {
+        const experienceData = {  
+            title: experienceInputs.title, 
+            topic: experienceInputs.topic, 
+            text: experienceInputs.text, 
+        };
+        fetch("https://davida-database.firebaseio.com/experiences.json", { 
+            method: 'POST', 
+            body: JSON.stringify(experienceData),
+            headers: { 'Content-Type': 'application/json' }
+        }).then(response => { console.log("informações salvas", response.json()) 
+            Alert.alert("Relato enviado!", [{ text: "OK" }]); 
+        });
+    }
 
     return (      
         <View style={globalStyles.container}>
@@ -61,7 +56,7 @@ export function ShareExperienceForm({props}) {
                 onChangeInput={(e) => setExperienceInputs({...experienceInputs, text: e})} />          
             </View>
             <View style={styles.button}>
-                <PrimaryButton title="Enviar"/>
+                <PrimaryButton title="Enviar" onPress={() => {onSend()}}/>
             </View>          
         </View>
     );

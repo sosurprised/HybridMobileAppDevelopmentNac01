@@ -1,8 +1,9 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavigationContainer, TabActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createSwitchNavigator } from 'react-navigation';
 import { StyleSheet, Dimensions } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Menu } from './screens/menu/menu.screen';
@@ -11,6 +12,11 @@ import StackArticlesScreen from './navigation/stack-articles';
 import StackProfileScreen from './navigation/stack-profile';
 import StackShareExperienceScreen from './navigation/stack-share-experience';
 import StackRegisterScreen from './navigation/stack-login';
+import { Success } from './screens/success/success.screen';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Login } from './screens/login/login.screen';
+import { Register } from './screens/cadastro/register.screen';
+import AuthContextProvider from './context/auth-context';
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -52,18 +58,34 @@ function Tabs() {
   );
 }
 
+function DrawerScreens () {
+  return(
+
+      <Drawer.Navigator >
+          <Drawer.Screen name="Home" component={Tabs} />
+          <Drawer.Screen name="Compartilhe experiência" component={StackShareExperienceScreen} />
+          <Drawer.Screen name="Fale Conosco" component={StackShareExperienceScreen} />
+      </Drawer.Navigator>
+
+  );
+}
+
+export const AuthContext = React.createContext({
+  isAuth: false,
+});
+
+const MainComponent = () => {
+  const authContext = useContext(AuthContext);
+  console.log("main");
+  var signedIn = true;
+  return(<NavigationContainer>{signedIn ? <DrawerScreens /> : <StackRegisterScreen />}</NavigationContainer>);
+} 
+
 export default function App() {
   return (
-     <NavigationContainer>      
-          <Drawer.Navigator >
-            <Drawer.Screen name="Home" component={Tabs} />
-            {/*para testes*/}
-            <Drawer.Screen name="Cadastrar-se" component={StackRegisterScreen} /> 
-            <Drawer.Screen name="Compartilhe experiência" component={StackShareExperienceScreen} />
-            <Drawer.Screen name="Fale Conosco" component={StackShareExperienceScreen} />
-           </Drawer.Navigator>
-          
-       </NavigationContainer> 
+    <AuthContextProvider>
+      <MainComponent />       
+    </AuthContextProvider>
   );
 }
 

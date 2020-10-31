@@ -25,22 +25,49 @@ export function Register({props}) {
         const userData = {  
             nome: userInputs.inputName, 
             sobrenome: userInputs.inputSurname, 
-            dataNascimento: userInputs.inputDateBirth, 
+            //dataNascimento: userInputs.inputDateBirth, 
             documento: userInputs.inputDocument,
             anoFormacao: userInputs.inputGraduationYear,
             especialidade: userInputs.inputEspecialization,
             admin: false,
             email: userInputs.inputEmail,
-            senha:  userInputs.inputPassword,
+            senha: userInputs.inputPassword,
         };
-        fetch("https://davida-7c9c3.firebaseio.com/users.json", { 
+        fetch("https://davida-database.firebaseio.com/user.json", { 
             method: 'POST', 
             body: JSON.stringify(userData),
             headers: { 'Content-Type': 'application/json' }
         }).then(response => { console.log("informações salvas", response.json()) 
         });
+
+        signUp(userInputs.inputEmail, userInputs.inputPassword);
+
         navigation.navigate('Success');
     }
+
+    const signUp = (email, password) => {
+        const response = fetch(
+            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD1-K5BxfATCQNdtH4aS7sdYAy1Gh-ognI',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                email: email,
+                password: password,
+                returnSecureToken: true
+              })
+            }
+          );
+          if (!response.ok) {
+            throw new Error('Something went wrong!');
+          }
+      
+          const resData = response.json();
+          console.log(resData);
+    };
+      
 
     return (      
         <View style={styles.container}>
