@@ -40,7 +40,7 @@ export function Register({props}) {
         }).then(response => { console.log("informações salvas", response.json()) 
         });
 
-        signUp(userInputs.inputEmail, userInputs.inputPassword);
+        //signUp(userInputs.inputEmail, userInputs.inputPassword);
 
         navigation.navigate('Success');
     }

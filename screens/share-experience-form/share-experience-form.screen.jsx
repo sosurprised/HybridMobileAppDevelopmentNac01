@@ -38,7 +38,7 @@ export function ShareExperienceForm({props}) {
         <View style={globalStyles.container}>
             <View style={styles.title}>
             <Typography style={typographyStyles.white24}
-                text='Conte para nós da sua experiência de trabalho com doação de órgãos!' />
+                text='Conte para nós sua experiência de trabalho com doação de órgãos!' />
             </View>
             <View style={styles.input}>
                 <FormInput label="Tema do relato" 

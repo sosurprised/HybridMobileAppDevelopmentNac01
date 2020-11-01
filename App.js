@@ -12,11 +12,9 @@ import StackArticlesScreen from './navigation/stack-articles';
 import StackProfileScreen from './navigation/stack-profile';
 import StackShareExperienceScreen from './navigation/stack-share-experience';
 import StackRegisterScreen from './navigation/stack-login';
-import { Success } from './screens/success/success.screen';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Login } from './screens/login/login.screen';
-import { Register } from './screens/cadastro/register.screen';
 import AuthContextProvider from './context/auth-context';
+import { Contact } from './screens/contact/contact.screen';
+import StackContactScreen from './navigation/stack-contact';
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -62,30 +60,27 @@ function DrawerScreens () {
   return(
 
       <Drawer.Navigator >
-          <Drawer.Screen name="Home" component={Tabs} />
+          <Drawer.Screen name="Inicio" component={Tabs} />
           <Drawer.Screen name="Compartilhe experiência" component={StackShareExperienceScreen} />
-          <Drawer.Screen name="Fale Conosco" component={StackShareExperienceScreen} />
+          <Drawer.Screen name="Fale Conosco" component={StackContactScreen} />
       </Drawer.Navigator>
 
   );
 }
 
 export const AuthContext = React.createContext({
-  isAuth: false,
+  isAuth: true,
 });
 
 const MainComponent = () => {
   const authContext = useContext(AuthContext);
-  console.log("main");
-  var signedIn = true;
-  return(<NavigationContainer>{signedIn ? <DrawerScreens /> : <StackRegisterScreen />}</NavigationContainer>);
+
+  return(<AuthContextProvider><NavigationContainer>{authContext.isAuth ? <DrawerScreens /> : <StackRegisterScreen />}</NavigationContainer></AuthContextProvider>);
 } 
 
 export default function App() {
   return (
-    <AuthContextProvider>
       <MainComponent />       
-    </AuthContextProvider>
   );
 }
 
@@ -99,6 +94,7 @@ export const globalStyles = StyleSheet.create({
   },
   containerLeft: {
     backgroundColor: '#1788A6',
+    paddingTop: 30,
   },
   text: {
       color: 'white',

@@ -3,18 +3,18 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/buttons/header-button/header-button';
-import { Profile } from '../screens/profile/profile';
+import Contact from '../screens/contact/contact.screen';
 
 const StackProfile = createStackNavigator();
 
-function StackProfileScreen({navigation}) {
+function StackContactScreen({navigation}) {
     return (
       <StackProfile.Navigator> 
         <StackProfile.Screen
-          name="Profile"
-          component={Profile}
+          name="Contact"
+          component={Contact}
           options={{
-            headerTitle: "Seu perfil",
+            headerTitle: "",
             headerLeft: () => (
                 <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
                   <Item 
@@ -29,4 +29,4 @@ function StackProfileScreen({navigation}) {
     );
   }
   
-  export default StackProfileScreen;
+  export default StackContactScreen;

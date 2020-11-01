@@ -9,7 +9,7 @@ export const typographyStyles = StyleSheet.create({
     white24: {
         color: 'white',
         fontSize: 24,
-        paddingVertical: 40,
+        paddingVertical: 15,
     },
     white28: {
         color: 'white',

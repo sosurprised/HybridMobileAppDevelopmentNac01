@@ -5,6 +5,12 @@ export const width = Dimensions.get('screen');
 export const styles = StyleSheet.create({
     img: {
         //height: width,
-        //width: width,
+       // width: width,
+       position: 'absolute',
+       bottom: 0,
+       
+    },
+    title: {
+        paddingTop: 50,
     } 
 });

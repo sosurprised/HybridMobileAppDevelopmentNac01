@@ -7,7 +7,7 @@ import { Reading } from '../screens/reading/reading.screen';
 
 const StackExperiences = createStackNavigator();
 
-function StackExperiencesScreen(props) {
+function StackExperiencesScreen({navigation}) {
     return (
         <StackExperiences.Navigator initialRouteName="ListingExperiences"> 
           <StackExperiences.Screen

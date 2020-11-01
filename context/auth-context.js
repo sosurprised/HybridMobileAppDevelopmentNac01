@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export const AuthContext = React.createContext({
+  userId : "-ML0PojDxlAm91SF0WWj",
   isAuth: true,
   login: () => {}
 });

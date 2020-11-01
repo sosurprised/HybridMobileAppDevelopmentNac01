@@ -8,9 +8,7 @@ export const styles = StyleSheet.create({
     },
     text: {
         marginTop: 50,
-        color: 'white',
         fontWeight: "400",
-        fontSize: 28,
         marginHorizontal: 20,
         textAlign: "center",
     },

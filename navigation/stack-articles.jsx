@@ -7,7 +7,7 @@ import { ListingArticles } from '../screens/listings/listing-articles';
 
 const StackArticles = createStackNavigator();
 
-function StackArticlesScreen() {
+function StackArticlesScreen({navigation}) {
     return (
       <StackArticles.Navigator initialRouteName="ListingArticles"> 
         <StackArticles.Screen 

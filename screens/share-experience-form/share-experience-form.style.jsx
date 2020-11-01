@@ -13,11 +13,10 @@ export const styles = StyleSheet.create({
         paddingBottom: 5,
     },
     title: {
-        paddingBottom: 15,
         width: width,
         textAlign: 'center',
     },
     button: {
-        paddingBottom: 15,
+        marginTop: 25,
     }
 });

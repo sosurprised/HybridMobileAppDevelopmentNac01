@@ -6,7 +6,7 @@ import { ShareExperienceForm } from '../screens/share-experience-form/share-expe
 
 const StackShareExperience = createStackNavigator();
 
-function StackShareExperienceScreen() {
+function StackShareExperienceScreen({navigation}) {
     return (
       <StackShareExperience.Navigator> 
         <StackShareExperience.Screen 

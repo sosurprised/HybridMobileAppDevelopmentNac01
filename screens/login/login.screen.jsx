@@ -14,7 +14,7 @@ export function Login({props}) {
     const authContext = useContext(AuthContext);
 
     const loginHandler = () => {
-        authContext.login();
+        authContext.isAuth=true;
         console.log(authContext.isAuth);
     };
   
@@ -74,7 +74,7 @@ export function Login({props}) {
                  />          
             </View>  
             <View style={ styles.button }>            
-                 <PrimaryButton title="Login" onPress={() => login(loginInputs.inputEmail, loginInputs.inputPassword)}/>
+                 <PrimaryButton title="Login" onPress={() => {loginHandler()}}/>
             </View>
             <View>
                 <Text style={ globalStyles.text }>Ainda não tem cadastro?</Text>
